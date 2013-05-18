@@ -244,12 +244,12 @@ if (has("gui_running") && g:solarized_degrade == 0)
     let s:vmode       = "gui"
     let s:base03      = "#002b36"
     let s:base02      = "#073642"
-    let s:base01      = "#586e75"
-    let s:base00      = "#657b83"
+    let s:base01      = "#354a51" " #586e75 -> Lab(30,-7,-7)
+    let s:base00      = "#41565d" " #657b83 -> Lab(35,-7,-7)
     let s:base0       = "#839496"
-    let s:base1       = "#93a1a1"
-    let s:base2       = "#eee8d5"
-    let s:base3       = "#fdf6e3"
+    let s:base1       = "#6c7a7a" " #93a1a1 -> Lab(50,-5,-2)
+    let s:base2       = "#edebe3" " #eee8d5 -> Lab(93,0,4)
+    let s:base3       = "#f9f6ef" " #fdf6e3 -> Lab(97,0,4)
     let s:yellow      = "#b58900"
     let s:orange      = "#cb4b16"
     let s:red         = "#dc322f"
