@@ -243,9 +243,9 @@ let colors_name = "solarized"
 if (has("gui_running") && g:solarized_degrade == 0)
     let s:vmode       = "gui"
     let s:base03      = "#002833" " #002b36 -> Lab(14,-11,-11)
-    let s:base02      = "#032d37" " #073642 -> Lab(18,-11,-11)
-    let s:base01      = "#4c6269" " #586e75 -> Lab(40,-7,-7)
-    let s:base00      = "#546971" " #657b83 -> Lab(43,-7,-7)
+    let s:base02      = "#032d37" " #073642 -> Lab(16,-11,-11)
+    let s:base01      = "#586e76"
+    let s:base00      = "#2a3f46" " #657b83 -> Lab(25,-7,-7)
     let s:base0       = "#839496"
     let s:base1       = "#6c7a7a" " #93a1a1 -> Lab(50,-5,-2)
     let s:base2       = "#edebe3" " #eee8d5 -> Lab(93,0,4)
