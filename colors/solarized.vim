@@ -244,9 +244,9 @@ if (has("gui_running") && g:solarized_degrade == 0)
     let s:vmode       = "gui"
     let s:base03      = "#002833"
     let s:base02      = "#032d37"
-    let s:base01      = "#586e76"
+    let s:base01      = "#4c6269"
     let s:base00      = "#1f343a"
-    let s:base0       = "#839496"
+    let s:base0       = "#6a7a7c"
     let s:base1       = "#5e6e6f"
     let s:base2       = "#f5f3ee"
     let s:base3       = "#fffefa"
@@ -259,6 +259,10 @@ if (has("gui_running") && g:solarized_degrade == 0)
     let s:cyan        = "#2aa198"
     "let s:green       = "#859900" "original
     let s:green       = "#719e07" "experimental
+
+    if &background == "dark"
+      let s:base00      = "#4c6269"
+    endif
 elseif (has("gui_running") && g:solarized_degrade == 1)
     " These colors are identical to the 256 color mode. They may be viewed
     " while in gui mode via "let g:solarized_degrade=1", though this is not
