@@ -246,8 +246,8 @@ if (has("gui_running") && g:solarized_degrade == 0)
     let s:base02      = "#032d37"
     let s:base01      = "#2a3f46"
     let s:base00      = "#1f343a"
-    let s:base0       = "#6a7a7c"
-    let s:base1       = "#5e6e6f"
+    let s:base0       = "#435354"
+    let s:base1       = "#435354"
     let s:base2       = "#f3f3f2"
     let s:base3       = "#fcfcfb"
     let s:yellow      = "#b58900"
@@ -263,6 +263,7 @@ if (has("gui_running") && g:solarized_degrade == 0)
     if &background == "dark"
       let s:base00      = "#4c6269"
       let s:base01      = "#4c6269"
+      let s:base1       = "#5e6e6f"
     endif
 elseif (has("gui_running") && g:solarized_degrade == 1)
     " These colors are identical to the 256 color mode. They may be viewed
