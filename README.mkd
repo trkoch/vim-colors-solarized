@@ -8,6 +8,9 @@ Modified: 2011 Apr 16
 
 ---
 
+This is a fork of solarized with more neutral background
+***
+
 Solarized Colorscheme for Vim
 =============================
 
