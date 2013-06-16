@@ -243,7 +243,7 @@ let colors_name = "solarized"
 if (has("gui_running") && g:solarized_degrade == 0)
     let s:vmode       = "gui"
     let s:base03      = "#002833"
-    let s:base02      = "#032d37"
+    let s:base02      = "#268bd2"
     let s:base01      = "#2a3f46"
     let s:base00      = "#1f343a"
     let s:base0       = "#435354"
