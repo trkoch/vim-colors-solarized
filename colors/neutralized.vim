@@ -175,7 +175,7 @@ let s:options_list=[
 let s:colorscheme_list=[
             \'syntax enable',
             \'set background='.&background,
-            \'colorscheme solarized',
+            \'colorscheme neutralized',
             \]
 let s:defaults_list=[
             \'" ------------------------------------------------------------------',
@@ -229,7 +229,7 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-let colors_name = "solarized"
+let colors_name = "neutralized"
 
 "}}}
 " GUI & CSApprox hexadecimal palettes"{{{
@@ -242,14 +242,14 @@ let colors_name = "solarized"
 " neutral gray monotone palette component)
 if (has("gui_running") && g:solarized_degrade == 0)
     let s:vmode       = "gui"
-    let s:base03      = "#002b36"
-    let s:base02      = "#073642"
-    let s:base01      = "#586e75"
-    let s:base00      = "#657b83"
-    let s:base0       = "#839496"
-    let s:base1       = "#93a1a1"
-    let s:base2       = "#eee8d5"
-    let s:base3       = "#fdf6e3"
+    let s:base03      = "#002833"
+    let s:base02      = "#268bd2"
+    let s:base01      = "#2a3f46"
+    let s:base00      = "#1f343a"
+    let s:base0       = "#435354"
+    let s:base1       = "#435354"
+    let s:base2       = "#f3f3f2"
+    let s:base3       = "#fcfcfb"
     let s:yellow      = "#b58900"
     let s:orange      = "#cb4b16"
     let s:red         = "#dc322f"
@@ -259,6 +259,12 @@ if (has("gui_running") && g:solarized_degrade == 0)
     let s:cyan        = "#2aa198"
     "let s:green       = "#859900" "original
     let s:green       = "#719e07" "experimental
+
+    if &background == "dark"
+      let s:base00      = "#4c6269"
+      let s:base01      = "#4c6269"
+      let s:base1       = "#5e6e6f"
+    endif
 elseif (has("gui_running") && g:solarized_degrade == 1)
     " These colors are identical to the 256 color mode. They may be viewed
     " while in gui mode via "let g:solarized_degrade=1", though this is not
@@ -1003,7 +1009,7 @@ augroup SolarizedHiTrail
     autocmd!
     if g:solarized_hitrail==1
         autocmd! Syntax * call s:SolarizedHiTrail()
-        autocmd! ColorScheme * if g:colors_name == "solarized" | call s:SolarizedHiTrail() | else | augroup! s:SolarizedHiTrail | endif
+        autocmd! ColorScheme * if g:colors_name == "neutralized" | call s:SolarizedHiTrail() | else | augroup! s:SolarizedHiTrail | endif
     endif
 augroup END
 " }}}
@@ -1036,37 +1042,37 @@ function! SolarizedMenu()
 
     if g:colors_name == "solarized" && g:solarized_menu != 0
 
-        amenu &Solarized.&Contrast.&Low\ Contrast        :let g:solarized_contrast="low"       \| colorscheme solarized<CR>
-        amenu &Solarized.&Contrast.&Normal\ Contrast     :let g:solarized_contrast="normal"    \| colorscheme solarized<CR>
-        amenu &Solarized.&Contrast.&High\ Contrast       :let g:solarized_contrast="high"      \| colorscheme solarized<CR>
+        amenu &Solarized.&Contrast.&Low\ Contrast        :let g:solarized_contrast="low"       \| colorscheme neutralized<CR>
+        amenu &Solarized.&Contrast.&Normal\ Contrast     :let g:solarized_contrast="normal"    \| colorscheme neutralized<CR>
+        amenu &Solarized.&Contrast.&High\ Contrast       :let g:solarized_contrast="high"      \| colorscheme neutralized<CR>
         an    &Solarized.&Contrast.-sep-                 <Nop>
         amenu &Solarized.&Contrast.&Help:\ Contrast      :help 'solarized_contrast'<CR>
 
-        amenu &Solarized.&Visibility.&Low\ Visibility    :let g:solarized_visibility="low"     \| colorscheme solarized<CR>
-        amenu &Solarized.&Visibility.&Normal\ Visibility :let g:solarized_visibility="normal"  \| colorscheme solarized<CR>
-        amenu &Solarized.&Visibility.&High\ Visibility   :let g:solarized_visibility="high"    \| colorscheme solarized<CR>
+        amenu &Solarized.&Visibility.&Low\ Visibility    :let g:solarized_visibility="low"     \| colorscheme neutralized<CR>
+        amenu &Solarized.&Visibility.&Normal\ Visibility :let g:solarized_visibility="normal"  \| colorscheme neutralized<CR>
+        amenu &Solarized.&Visibility.&High\ Visibility   :let g:solarized_visibility="high"    \| colorscheme neutralized<CR>
         an    &Solarized.&Visibility.-sep-                 <Nop>
         amenu &Solarized.&Visibility.&Help:\ Visibility    :help 'solarized_visibility'<CR>
 
         amenu &Solarized.&Background.&Toggle\ Background :ToggleBG<CR>
-        amenu &Solarized.&Background.&Dark\ Background   :set background=dark  \| colorscheme solarized<CR>
-        amenu &Solarized.&Background.&Light\ Background  :set background=light \| colorscheme solarized<CR>
+        amenu &Solarized.&Background.&Dark\ Background   :set background=dark  \| colorscheme neutralized<CR>
+        amenu &Solarized.&Background.&Light\ Background  :set background=light \| colorscheme neutralized<CR>
         an    &Solarized.&Background.-sep-               <Nop>
         amenu &Solarized.&Background.&Help:\ ToggleBG     :help togglebg<CR>
 
         if g:solarized_bold==0 | let l:boldswitch="On" | else | let l:boldswitch="Off" | endif
-        exe "amenu &Solarized.&Styling.&Turn\\ Bold\\ ".l:boldswitch." :let g:solarized_bold=(abs(g:solarized_bold-1)) \\| colorscheme solarized<CR>"
+        exe "amenu &Solarized.&Styling.&Turn\\ Bold\\ ".l:boldswitch." :let g:solarized_bold=(abs(g:solarized_bold-1)) \\| colorscheme neutralized<CR>"
         if g:solarized_italic==0 | let l:italicswitch="On" | else | let l:italicswitch="Off" | endif
-        exe "amenu &Solarized.&Styling.&Turn\\ Italic\\ ".l:italicswitch." :let g:solarized_italic=(abs(g:solarized_italic-1)) \\| colorscheme solarized<CR>"
+        exe "amenu &Solarized.&Styling.&Turn\\ Italic\\ ".l:italicswitch." :let g:solarized_italic=(abs(g:solarized_italic-1)) \\| colorscheme neutralized<CR>"
         if g:solarized_underline==0 | let l:underlineswitch="On" | else | let l:underlineswitch="Off" | endif
-        exe "amenu &Solarized.&Styling.&Turn\\ Underline\\ ".l:underlineswitch." :let g:solarized_underline=(abs(g:solarized_underline-1)) \\| colorscheme solarized<CR>"
+        exe "amenu &Solarized.&Styling.&Turn\\ Underline\\ ".l:underlineswitch." :let g:solarized_underline=(abs(g:solarized_underline-1)) \\| colorscheme neutralized<CR>"
 
-        amenu &Solarized.&Diff\ Mode.&Low\ Diff\ Mode    :let g:solarized_diffmode="low"     \| colorscheme solarized<CR>
-        amenu &Solarized.&Diff\ Mode.&Normal\ Diff\ Mode :let g:solarized_diffmode="normal"  \| colorscheme solarized<CR>
-        amenu &Solarized.&Diff\ Mode.&High\ Diff\ Mode   :let g:solarized_diffmode="high"    \| colorscheme solarized<CR>
+        amenu &Solarized.&Diff\ Mode.&Low\ Diff\ Mode    :let g:solarized_diffmode="low"     \| colorscheme neutralized<CR>
+        amenu &Solarized.&Diff\ Mode.&Normal\ Diff\ Mode :let g:solarized_diffmode="normal"  \| colorscheme neutralized<CR>
+        amenu &Solarized.&Diff\ Mode.&High\ Diff\ Mode   :let g:solarized_diffmode="high"    \| colorscheme neutralized<CR>
 
         if g:solarized_hitrail==0 | let l:hitrailswitch="On" | else | let l:hitrailswitch="Off" | endif
-        exe "amenu &Solarized.&Experimental.&Turn\\ Highlight\\ Trailing\\ Spaces\\ ".l:hitrailswitch." :let g:solarized_hitrail=(abs(g:solarized_hitrail-1)) \\| colorscheme solarized<CR>"
+        exe "amenu &Solarized.&Experimental.&Turn\\ Highlight\\ Trailing\\ Spaces\\ ".l:hitrailswitch." :let g:solarized_hitrail=(abs(g:solarized_hitrail-1)) \\| colorscheme neutralized<CR>"
         an    &Solarized.&Experimental.-sep-               <Nop>
         amenu &Solarized.&Experimental.&Help:\ HiTrail    :help 'solarized_hitrail'<CR>
 
@@ -1087,7 +1093,7 @@ function! SolarizedMenu()
     endif
 endfunction
 
-autocmd ColorScheme * if g:colors_name != "solarized" | silent! aunmenu Solarized | else | call SolarizedMenu() | endif
+autocmd ColorScheme * if g:colors_name != "neutralized" | silent! aunmenu Solarized | else | call SolarizedMenu() | endif
 
 "}}}
 " License "{{{
